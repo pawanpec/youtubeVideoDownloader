@@ -18,4 +18,4 @@ Authenticate through Google.
 * You will need a Mongo instance running. In a new terminal window run `mongod`
 * `node app`
 
-Head over to [http://localhost:4000](http://localhost:4000)
+Head over to [http://localhost:4000/youtube](http://localhost:4000/youtube)
