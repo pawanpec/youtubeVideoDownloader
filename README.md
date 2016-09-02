@@ -1,8 +1,8 @@
-# express-authentication
+# Youtube Video Downloader
 
-Simple authentication app using express, node & passport.
+A sample application to download youtube video.
 
-Authenticate locally or through Facebook, Twitter or Google.
+Authenticate through Google.
 
 ## Prerequisites 
 
@@ -12,10 +12,10 @@ Authenticate locally or through Facebook, Twitter or Google.
 
 ## Installation
 
-* ` git clone https://github.com/danielgynn/express-authentication.git`
-* `cd express-authentication`
+* ` git clone https://github.com/pawanpec/youtubeVideoDownloader.git`
+* `cd youtubeVideoDownloader`
 * `npm install`
 * You will need a Mongo instance running. In a new terminal window run `mongod`
 * `node app`
 
-Head over to [http://localhost:3000](http://localhost:3000)
+Head over to [http://localhost:4000](http://localhost:4000)
