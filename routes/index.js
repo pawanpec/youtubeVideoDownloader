@@ -6,18 +6,18 @@ router.get('/', function (req, res, next) {
     res.render('index', {title: 'Express'});
 });
 
-router.get('/login', function (req, res, next) {
+/*router.get('/login', function (req, res, next) {
     res.render('login.ejs', {message: req.flash('loginMessage')});
 });
 
 router.get('/signup', function (req, res) {
     res.render('signup.ejs', {message: req.flash('loginMessage')});
-});
+});*/
 
 router.get('/profile', isLoggedIn, function (req, res) {
     res.render('profile.ejs', {user: req.user});
 });
-router.post('/youtube_download', isLoggedIn, function (req, res) {
+router.post('/download', isLoggedIn, function (req, res) {
     var url = req.body.url;
     console.log(" i am in download body " + url);
     var video = new Youtubedl(url, []);
@@ -25,6 +25,7 @@ router.post('/youtube_download', isLoggedIn, function (req, res) {
     video.on('info', function (info) {
         fileInfo=info;
         console.log(" downloading file " + info._filename);
+        res.setHeader('Content-disposition', 'attachment; filename=' + info._filename);
     });
     video.on('data', function data(chunk) {
         res.write(chunk);
@@ -41,9 +42,9 @@ router.post('/youtube_download', isLoggedIn, function (req, res) {
 
 router.get('/logout', function (req, res) {
     req.logout();
-    res.redirect('/');
+    res.redirect('/youtube/');
 });
-
+/*
 router.post('/signup', passport.authenticate('local-signup', {
     successRedirect: '/profile',
     failureRedirect: '/signup',
@@ -54,13 +55,14 @@ router.post('/login', passport.authenticate('local-login', {
     successRedirect: '/profile',
     failureRedirect: '/login',
     failureFlash: true,
-}));
+}));*/
 
+/*
 router.get('/auth/facebook', passport.authenticate('facebook', {scope: 'email'}));
 
 router.get('/auth/facebook/callback', passport.authenticate('facebook', {
-    successRedirect: '/profile',
-    failureRedirect: '/',
+    successRedirect: '/youtube/profile',
+    failureRedirect: '/youtube/',
 }));
 
 router.get('/auth/twitter', passport.authenticate('twitter'));
@@ -69,12 +71,13 @@ router.get('/auth/twitter/callback', passport.authenticate('twitter', {
     successRedirect: '/profile',
     failureRedirect: '/',
 }));
+*/
 
 router.get('/auth/google', passport.authenticate('google', {scope: ['profile', 'email']}));
 
 router.get('/auth/google/callback', passport.authenticate('google', {
-    successRedirect: '/profile',
-    failureRedirect: '/',
+    successRedirect: '/youtube/profile',
+    failureRedirect: '/youtube/',
 }));
 
 module.exports = router;

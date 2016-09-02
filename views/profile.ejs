@@ -5,11 +5,11 @@
       <div class="text-center">
         <h1 class=" fa fa-user"> Profile</h1><br>
         <span><strong>user id</strong>: <%= user._id ? user._id : '' %></span><br>
-        <span class="fa fa-sign-out"><a href="/"> Sign out</a></span>
+        <span class="fa fa-sign-out"><a href="/youtube"> Sign out</a></span>
         <hr>
-        <form action="/youtube_download" method="post">
+        <form action="/youtube/download" method="post">
           <div class="form-group">
-            <label>Youtube URL</label>
+            <label>Enter Youtube URL to Download</label>
             <input type="text" class="form-control" name="url">
           </div>
           <div>
@@ -41,11 +41,13 @@
 
           <% if (user.google.id != null) { %>
             <h2 class="fa fa-google-plus"> Google</h2><br>
+
             <img src="https://avatars.io/gravatar/<%= user.google.email %>/140" class="img-circle"><br>
-            <strong>id</strong>: <%= user.google.id %><br>
-            <strong>token</strong>: <%= user.google.token %><br>
-            <strong>email</strong>: <%= user.google.email %><br>
+            <!--<strong>id</strong>: <%= user.google.id %><br>
+            <strong>token</strong>: <%= user.google.token %><br>-->
             <strong>name</strong>: <%= user.google.name %>
+            <strong>email</strong>: <%= user.google.email %><br>
+
           <% } %>
         </div>
 

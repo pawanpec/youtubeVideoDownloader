@@ -15,7 +15,6 @@ var flash = require('connect-flash');
 var session = require('express-session');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 
 var configDB = require('./config/database.js');
 mongoose.connect(configDB.url);
@@ -39,9 +38,7 @@ app.use(flash());
 
 require('./config/passport')(passport);
 
-app.use('/', routes);
-app.use('/users', users);
-
+app.use('/youtube', routes);
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
