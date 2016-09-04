@@ -42,7 +42,7 @@ router.post('/download', isLoggedIn, function (req, res) {
 
 router.get('/logout', function (req, res) {
     req.logout();
-    res.redirect('/youtube/');
+    res.redirect('/');
 });
 /*
 router.post('/signup', passport.authenticate('local-signup', {
@@ -61,8 +61,8 @@ router.post('/login', passport.authenticate('local-login', {
 router.get('/auth/facebook', passport.authenticate('facebook', {scope: 'email'}));
 
 router.get('/auth/facebook/callback', passport.authenticate('facebook', {
-    successRedirect: '/youtube/profile',
-    failureRedirect: '/youtube/',
+    successRedirect: '/profile',
+    failureRedirect: '/',
 }));
 
 router.get('/auth/twitter', passport.authenticate('twitter'));
