@@ -76,8 +76,8 @@ router.get('/auth/twitter/callback', passport.authenticate('twitter', {
 router.get('/auth/google', passport.authenticate('google', {scope: ['profile', 'email']}));
 
 router.get('/auth/google/callback', passport.authenticate('google', {
-    successRedirect: '/youtube/profile',
-    failureRedirect: '/youtube/',
+    successRedirect: '/profile',
+    failureRedirect: '/',
 }));
 
 module.exports = router;

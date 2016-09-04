@@ -5,9 +5,9 @@
       <div class="text-center">
         <h1 class=" fa fa-user"> Profile</h1><br>
         <span><strong>user id</strong>: <%= user._id ? user._id : '' %></span><br>
-        <span class="fa fa-sign-out"><a href="/youtube"> Sign out</a></span>
+        <span class="fa fa-sign-out"><a href="/"> Sign out</a></span>
         <hr>
-        <form action="/youtube/download" method="post">
+        <form action="/download" method="post">
           <div class="form-group">
             <label>Enter Youtube URL to Download</label>
             <input type="text" class="form-control" name="url">

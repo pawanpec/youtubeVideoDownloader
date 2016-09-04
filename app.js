@@ -38,7 +38,7 @@ app.use(flash());
 
 require('./config/passport')(passport);
 
-app.use('/youtube', routes);
+app.use('/', routes);
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
