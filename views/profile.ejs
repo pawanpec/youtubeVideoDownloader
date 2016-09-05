@@ -7,6 +7,9 @@
         <span><strong>user id</strong>: <%= user._id ? user._id : '' %></span><br>
         <span class="fa fa-sign-out"><a href="/"> Sign out</a></span>
         <hr>
+        <% if (message != null) { %>
+        <div class="alert-danger"><%= message %></div>
+        <% } %>
         <form action="/download" method="post">
           <div class="form-group">
             <label>Enter Youtube URL to Download</label>
