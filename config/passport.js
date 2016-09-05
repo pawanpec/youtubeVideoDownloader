@@ -67,6 +67,7 @@ module.exports = function(passport) {
     profileFields: ['id', 'email', 'first_name', 'last_name'],
   },
   function(token, refreshToken, profile, done) {
+    console.log("profile "+JSON.stringify(profile));
     process.nextTick(function() {
       User.findOne({ 'facebook.id': profile.id }, function(err, user) {
         if (err)
